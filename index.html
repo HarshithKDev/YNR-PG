@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YNR Sri Sai Balaji | Premium Co-Living</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Glassmorphism Utilities */
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        
+        /* Smooth Fade Animation */
+        .modal { display: none; }
+        .modal.active { display: flex; animation: fadeIn 0.2s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Hide Scrollbar for Gallery */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Mobile Menu Animation */
+        #mobileMenu { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
+        #mobileMenu.open { transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-orange-100 selection:text-orange-900">
+
+    <nav class="fixed top-0 w-full z-50 glass border-b border-orange-100/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-50">
+            
+            <div class="flex items-center gap-3">
+                <div class="bg-orange-600 p-2 rounded-lg text-white shadow-lg">
+                    <i data-lucide="building-2" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-slate-900 leading-none">YNR SRI SAI BALAJI</h1>
+                    <p class="text-[10px] font-bold text-orange-600 tracking-widest uppercase mt-0.5">Co-Living PG</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-500 absolute left-1/2 -translate-x-1/2">
+                <a href="#rooms" class="hover:text-orange-600 transition">Rooms</a>
+                <a href="#facilities" class="hover:text-orange-600 transition">Facilities</a>
+                <a href="#gallery" class="hover:text-orange-600 transition">Gallery</a>
+                <a href="#location" class="hover:text-orange-600 transition">Location</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-3">
+                <a href="tel:+918971049428" class="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-bold text-slate-600 border border-slate-200 hover:border-orange-200 hover:text-orange-600 hover:bg-orange-50 transition">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    <span>+91 8971049428</span>
+                </a>
+                <button onclick="toggleModal()" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-orange-600 transition shadow-lg shadow-slate-200 ring-2 ring-transparent hover:ring-orange-500 ring-offset-2">
+                    Check Availability
+                </button>
+            </div>
+
+            <button id="menuBtn" class="md:hidden text-slate-900 p-2" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 md:hidden h-screen border-b border-slate-200">
+            <div class="flex flex-col gap-6 text-lg font-bold text-slate-800">
+                <a href="#rooms" onclick="toggleMobileMenu()" class="border-b border-slate-100 pb-4">Rooms</a>
+                <a href="#facilities" onclick="toggleMobileMenu()" class="border-b border-slate-100 pb-4">Facilities</a>
+                <a href="#gallery" onclick="toggleMobileMenu()" class="border-b border-slate-100 pb-4">Gallery</a>
+                <a href="#location" onclick="toggleMobileMenu()" class="border-b border-slate-100 pb-4">Location</a>
+            </div>
+            
+            <div class="mt-8 space-y-4">
+                <a href="tel:+918971049428" class="flex items-center justify-center gap-2 w-full py-4 rounded-xl border border-slate-200 font-bold text-slate-600">
+                    <i data-lucide="phone" class="w-4 h-4"></i> Call Owner
+                </a>
+                <button onclick="toggleMobileMenu(); toggleModal()" class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold shadow-lg">
+                    Check Availability
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="min-h-screen flex flex-col justify-center items-center pt-16 px-6 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-[1.1]">
+                YNR SRI SAI BALAJI<br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Co-Living PG</span>
+            </h2>
+            <p class="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+                A 5-floor managed residence with biometric security, home-style meals, and daily housekeeping.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#rooms" class="bg-orange-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-orange-700 transition shadow-lg shadow-orange-200">
+                    View Pricing
+                </a>
+                <a href="#gallery" class="bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition">
+                    View Photos
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 animate-bounce text-slate-400">
+            <i data-lucide="chevron-down" class="w-6 h-6"></i>
+        </div>
+    </header>
+
+    <div class="border-y border-slate-200 bg-white/50 backdrop-blur-sm overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex items-center gap-4 justify-center md:justify-start">
+                    <div class="bg-blue-50 p-3 rounded-full text-blue-600"><i data-lucide="droplets"></i></div>
+                    <div class="text-left"><p class="font-bold text-sm">RO Water</p><p class="text-xs text-slate-500">Pure Drinking Water</p></div>
+                </div>
+                <div class="flex items-center gap-4 justify-center md:justify-start">
+                    <div class="bg-orange-50 p-3 rounded-full text-orange-600"><i data-lucide="sun"></i></div>
+                    <div class="text-left"><p class="font-bold text-sm">24/7 Hot Water</p><p class="text-xs text-slate-500">Solar & Geyser</p></div>
+                </div>
+                <div class="flex items-center gap-4 justify-center md:justify-start">
+                    <div class="bg-green-50 p-3 rounded-full text-green-600"><i data-lucide="shield-check"></i></div>
+                    <div class="text-left"><p class="font-bold text-sm">Biometric Gate</p><p class="text-xs text-slate-500">Secure Entry</p></div>
+                </div>
+                <div class="flex items-center gap-4 justify-center md:justify-start">
+                    <div class="bg-purple-50 p-3 rounded-full text-purple-600"><i data-lucide="wifi"></i></div>
+                    <div class="text-left"><p class="font-bold text-sm">High Speed</p><p class="text-xs text-slate-500">Wi-Fi Included</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="rooms" class="min-h-screen flex flex-col justify-center items-center py-20 px-6 bg-slate-50 snap-start relative">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold text-slate-900">Simple, Transparent Pricing</h3>
+                <p class="text-slate-500 mt-3 text-lg">Daily housekeeping included (Mon-Sat). No hidden charges.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-lg hover:shadow-xl transition duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold group-hover:text-orange-600 transition">Single Room</h4>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Privacy</span>
+                    </div>
+                    <p class="text-4xl font-bold text-slate-900 mb-2">₹14k<span class="text-lg text-slate-400 font-normal">/mo</span></p>
+                    <p class="text-sm text-slate-500 mb-8">For those who need their own space to work and relax.</p>
+                    <button onclick="openModalWithRoom('Single Sharing')" class="w-full py-4 rounded-xl border border-slate-200 font-bold hover:bg-orange-50 hover:text-orange-700 hover:border-orange-200 transition">Check Availability</button>
+                </div>
+
+                <div class="bg-slate-900 text-white rounded-3xl p-10 shadow-2xl relative overflow-hidden transform md:scale-110 z-10">
+                    <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl">POPULAR</div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold">Double Sharing</h4>
+                    </div>
+                    <p class="text-5xl font-bold mb-2">₹8.5k<span class="text-lg text-slate-400 font-normal">/mo</span></p>
+                    <p class="text-sm text-slate-400 mb-8">The perfect balance of community and personal space.</p>
+                    <button onclick="openModalWithRoom('Double Sharing')" class="w-full py-4 rounded-xl bg-orange-600 hover:bg-orange-500 font-bold transition shadow-lg shadow-orange-900/50">Check Availability</button>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-lg hover:shadow-xl transition duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold group-hover:text-orange-600 transition">Triple Sharing</h4>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Value</span>
+                    </div>
+                    <p class="text-4xl font-bold text-slate-900 mb-2">₹7.5k<span class="text-lg text-slate-400 font-normal">/mo</span></p>
+                    <p class="text-sm text-slate-500 mb-8">Budget-friendly option without compromising on amenities.</p>
+                    <button onclick="openModalWithRoom('Triple Sharing')" class="w-full py-4 rounded-xl border border-slate-200 font-bold hover:bg-orange-50 hover:text-orange-700 hover:border-orange-200 transition">Check Availability</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="min-h-screen flex flex-col justify-center bg-slate-50 relative snap-start">
+        <div class="max-w-7xl mx-auto w-full px-6">
+            <h3 class="text-3xl font-bold text-center mb-12 text-slate-900">Life at YNR PG</h3>
+            
+            <div class="relative group px-4 md:px-12">
+                <button onclick="scrollGallery('left')" class="absolute -left-2 top-1/2 -translate-y-1/2 z-20 bg-white p-3 rounded-full shadow-lg border border-slate-100 text-slate-700 hover:bg-orange-600 hover:text-white transition hover:scale-110 hidden md:block">
+                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                </button>
+
+                <div id="galleryContainer" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar py-8">
+                    <div class="relative h-64 md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://i.postimg.cc/vTryBTy2/2025_12_01.jpg" class="h-full w-auto object-cover">
+                    </div>
+                    <div class="relative h-64 md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://i.postimg.cc/8cRG5cGH/2025_12_01_(1).jpg" class="h-full w-auto object-cover">
+                    </div>
+                    <div class="relative h-64 md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://i.postimg.cc/L5tSX5SC/2025_12_01_(2).jpg" class="h-full w-auto object-cover">
+                    </div>
+                    <div class="relative h-64 md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://i.postimg.cc/BbT36b3V/2025_12_01_(3).jpg" class="h-full w-auto object-cover">
+                    </div>
+                     <div class="relative h-64 md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://i.postimg.cc/DfLn5jGf/2025_12_01_(4).jpg" class="h-full w-auto object-cover">
+                    </div>
+                    <div class="relative h-64 md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://i.postimg.cc/sf7sK6Wz/2025_12_01_(6).jpg" class="h-full w-auto object-cover">
+                    </div>
+                    <div class="relative h-64 md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://i.postimg.cc/8kMNwKvj/2025_12_12.jpg" class="h-full w-auto object-cover">
+                    </div>
+                    <div class="relative h-64 md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://i.postimg.cc/c1w0T93g/2025_12_17.jpg" class="h-full w-auto object-cover">
+                    </div>
+                    <div class="relative h-64 md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://i.postimg.cc/NGmBbJXH/2026_01_17.jpg" class="h-full w-auto object-cover">
+                    </div>
+                    <div class="relative h-64 md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://i.postimg.cc/NGmBbJX2/2026_01_17_(1).jpg" class="h-full w-auto object-cover">
+                    </div>
+                    <div class="relative h-64 md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://i.postimg.cc/2jhrTcWB/2026_01_17_(2).jpg" class="h-full w-auto object-cover">
+                    </div>
+                </div>
+
+                <button onclick="scrollGallery('right')" class="absolute -right-2 top-1/2 -translate-y-1/2 z-20 bg-white p-3 rounded-full shadow-lg border border-slate-100 text-slate-700 hover:bg-orange-600 hover:text-white transition hover:scale-110 hidden md:block">
+                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                </button>
+    </section>
+
+    <section id="facilities" class="min-h-screen flex flex-col justify-center bg-white snap-start relative py-20">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            
+            <div class="grid md:grid-cols-2 gap-16 items-start mb-16">
+                
+                <div class="space-y-12">
+                    <div>
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-6 shadow-sm">
+                            <i data-lucide="chef-hat" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4 text-slate-900">Self-Cooking & Dining</h3>
+                        <p class="text-slate-500 leading-relaxed text-lg">
+                            Our ground floor features a spacious dining hall with a common TV and Refrigerator. Residents can store personal items like milk and fruits, or cook their own light meals in the dedicated pantry area.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-6 shadow-sm">
+                            <i data-lucide="shirt" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4 text-slate-900">Terrace Laundry Zone</h3>
+                        <p class="text-slate-500 leading-relaxed text-lg">
+                            Forget laundry hassles. We provide two automatic washing machines on the terrace, free for all residents. The area is equipped with ample drying ropes to ensure your clothes dry quickly under the sun.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-orange-50/50 p-8 rounded-3xl border border-orange-100 hover:shadow-lg transition duration-300 h-full">
+                        <h4 class="font-bold text-orange-900 mb-6 flex items-center gap-2 text-xl">
+                            <i data-lucide="utensils"></i> Weekly Specials
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-orange-50">
+                                <div class="flex justify-between items-center mb-2 border-b border-orange-100 pb-2">
+                                    <span class="font-bold text-orange-800">Wednesday</span>
+                                    <i data-lucide="chef-hat" class="w-4 h-4 text-orange-400"></i>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-500 font-medium text-xs uppercase tracking-wide">Non-Veg</span>
+                                        <span class="font-bold text-slate-800">Chicken Biryani</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-500 font-medium text-xs uppercase tracking-wide">Veg</span>
+                                        <span class="font-bold text-slate-800">Paneer / Mushroom</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-orange-50 flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-orange-800 block">Friday</span>
+                                    <span class="text-xs text-slate-500 font-medium uppercase tracking-wide">Special</span>
+                                </div>
+                                <span class="font-bold text-yellow-700 bg-yellow-50 px-3 py-1 rounded-full border border-yellow-100">Egg Special</span>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-orange-50">
+                                <div class="flex justify-between items-center mb-2 border-b border-orange-100 pb-2">
+                                    <span class="font-bold text-orange-800">Sunday</span>
+                                    <i data-lucide="utensils-crossed" class="w-4 h-4 text-orange-400"></i>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-500 font-medium text-xs uppercase tracking-wide">Non-Veg</span>
+                                        <span class="font-bold text-slate-800">Chicken Curry</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-500 font-medium text-xs uppercase tracking-wide">Veg</span>
+                                        <span class="font-bold text-slate-800">Paneer / Mushroom</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-xl hover:scale-[1.02] transition duration-300 w-full max-w-2xl">
+                    <h4 class="font-bold mb-6 flex items-center gap-2 text-xl justify-center">
+                        <i data-lucide="wallet"></i> Deposit Breakdown
+                    </h4>
+                    <div class="space-y-4 text-sm max-w-lg mx-auto">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400">Total Security Deposit</span>
+                            <span class="font-bold text-lg">₹4,000</span>
+                        </div>
+                        <div class="h-px bg-slate-700 w-full"></div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400">Maintenance (Deducted)</span>
+                            <span class="text-red-400 font-bold">₹2,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400">Refundable Amount</span>
+                            <span class="text-green-400 font-bold">₹2,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-center mb-10">What Residents Say</h3>
+            <div class="w-full h-[500px] rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
+                <iframe src="https://widget.tagembed.com/316309?website=1" style="width:100%;height:100%;border:none;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="pt-24 pb-12 px-6 bg-slate-900 text-slate-300 snap-start">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 mb-16">
+            
+            <div class="flex flex-col justify-center">
+                <h3 class="text-2xl font-bold text-white mb-6">Visit Us Today</h3>
+                <p class="mb-10 leading-relaxed text-slate-400">
+                    Located in the heart of Nagavara, near HKBK College. 
+                    Accessible, safe, and surrounded by essential shops.
+                </p>
+                
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="bg-orange-600 p-3 rounded-lg text-white flex-shrink-0">
+                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-white text-lg">YNR Sri Sai Balaji Co-Living</h5>
+                        <p class="text-sm text-slate-400 mt-1 leading-relaxed">850, 3rd Cross, Vyalikaval HBCS Layout,<br>Nagavara, Bengaluru</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="bg-orange-600 p-3 rounded-lg text-white flex-shrink-0">
+                        <i data-lucide="phone" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-white text-lg">Contact Owners</h5>
+                        <div class="flex flex-col gap-1 mt-1">
+                            <a href="tel:+918971049428" class="text-sm hover:text-orange-400 transition">+91 8971049428</a>
+                            <a href="tel:+919742110755" class="text-sm hover:text-orange-400 transition">+91 9742110755</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://maps.app.goo.gl/6XJTAZpMa4cydKKT9" target="_blank" class="inline-flex items-center gap-2 text-white font-bold hover:text-orange-400 transition mt-2 group">
+                    Open in Google Maps <i data-lucide="external-link" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+                </a>
+            </div>
+
+            <div class="h-80 md:h-full min-h-[300px] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1943.4945864926872!2d77.618954!3d13.036361!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae177e546353fb%3A0xf623b1a6637c5cb!2sYNR%20SRI%20SAI%20BALAJI%20CO-LIVING%20PG!5e0!3m2!1sen!2sus!4v1770566893093!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+        
+        <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-500">
+            <p>© 2026 YNR Sri Sai Balaji Co-Living. All rights reserved.</p>
+        </div>
+    </section>
+
+    <div id="availabilityModal" class="modal fixed inset-0 z-[100] justify-center items-center px-4 bg-slate-900/60 backdrop-blur-sm transition-opacity">
+        <div class="bg-white w-full max-w-md p-8 rounded-3xl shadow-2xl relative">
+            <button onclick="toggleModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-800 transition">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="text-center mb-8">
+                <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="calendar-check" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900">Check Availability</h3>
+                <p class="text-slate-500 text-sm mt-2">We'll get back to you instantly.</p>
+            </div>
+
+            <div id="roomContext" class="hidden mb-6 text-center">
+                <span class="bg-orange-50 text-orange-700 px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wide">
+                    Inquiring for: <span id="roomName">General</span>
+                </span>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-1 ml-1">Name</label>
+                    <input type="text" id="userName" placeholder="e.g., Rahul Verma" class="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none transition font-medium text-slate-900">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-1 ml-1">Phone</label>
+                    <input type="tel" id="userPhone" placeholder="e.g., 98765 43210" class="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none transition font-medium text-slate-900">
+                </div>
+                <button id="submitBtn" onclick="sendTelegram()" class="w-full bg-slate-900 text-white font-bold py-4 rounded-xl hover:bg-orange-600 transition shadow-lg shadow-slate-200 flex justify-center items-center gap-2 mt-2">
+                    <span>Confirm</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Scroll Gallery Logic
+        function scrollGallery(direction) {
+            const container = document.getElementById('galleryContainer');
+            const scrollAmount = 320; // Width of card + gap
+            
+            if(direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        // Mobile Menu Logic
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+
+        // Modal Logic
+        let selectedRoom = "General Inquiry";
+
+        function toggleModal() {
+            const modal = document.getElementById('availabilityModal');
+            modal.classList.toggle('active');
+        }
+
+        function openModalWithRoom(room) {
+            selectedRoom = room;
+            document.getElementById('roomName').innerText = room;
+            document.getElementById('roomContext').classList.remove('hidden');
+            toggleModal();
+        }
+
+        // Telegram Logic
+        async function sendTelegram() {
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const btn = document.getElementById('submitBtn');
+            
+            const BOT_TOKEN = "8537973955:AAEFYPItgAGqL30IREreJ8xkHCykrWMA7lw"; 
+            const CHAT_ID = "6473338469";
+
+            if(!name || !phone) return alert("Please fill in your details first.");
+
+            btn.innerHTML = "Sending..."; 
+            btn.disabled = true;
+
+            const message = `🏠 *New Website Lead*\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📌 *Interest:* ${selectedRoom}`;
+            
+            try {
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: 'Markdown' })
+                });
+                alert("Success! We have received your request.");
+                toggleModal();
+            } catch (e) {
+                alert("Error sending request. Please call us directly.");
+            } finally {
+                btn.innerHTML = `<span>Confirm Booking</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>`;
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
