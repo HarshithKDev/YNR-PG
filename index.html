@@ -466,33 +466,43 @@
         }
 
         // Telegram Logic
+        // Updated Telegram Logic (Secure)
         async function sendTelegram() {
             const name = document.getElementById('userName').value;
             const phone = document.getElementById('userPhone').value;
             const btn = document.getElementById('submitBtn');
             
-            const BOT_TOKEN = "8537973955:AAEFYPItgAGqL30IREreJ8xkHCykrWMA7lw"; 
-            const CHAT_ID = "6473338469";
+            // PASTE YOUR CLOUDFLARE WORKER URL HERE
+            const WORKER_URL = "https://pg-contact-bot.harshithmax999.workers.dev/"; 
 
             if(!name || !phone) return alert("Please fill in your details first.");
 
             btn.innerHTML = "Sending..."; 
             btn.disabled = true;
 
-            const message = `🏠 *New Website Lead*\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📌 *Interest:* ${selectedRoom}`;
-            
             try {
-                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                // We now send data to YOUR worker, not Telegram directly
+                const response = await fetch(WORKER_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: 'Markdown' })
+                    body: JSON.stringify({ 
+                        name: name, 
+                        phone: phone, 
+                        room: selectedRoom 
+                    })
                 });
-                alert("Success! We have received your request.");
-                toggleModal();
+
+                if (response.ok) {
+                    alert("Success! We have received your request.");
+                    toggleModal();
+                } else {
+                    throw new Error("Worker Error");
+                }
             } catch (e) {
+                console.error(e);
                 alert("Error sending request. Please call us directly.");
             } finally {
-                btn.innerHTML = `<span>Confirm Booking</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>`;
+                btn.innerHTML = `<span>Confirm</span>`;
                 btn.disabled = false;
             }
         }
