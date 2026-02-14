@@ -130,47 +130,47 @@
     </div>
 
     <section id="rooms" class="min-h-screen flex flex-col justify-center items-center py-20 px-6 bg-slate-50 snap-start relative">
-        <div class="max-w-7xl mx-auto w-full">
-            <div class="text-center mb-16">
-                <h3 class="text-3xl font-bold text-slate-900">Simple, Transparent Pricing</h3>
-                <p class="text-slate-500 mt-3 text-lg">Daily housekeeping included (Mon-Sat). No hidden charges.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
-                
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-lg hover:shadow-xl transition duration-300 group">
-                    <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-bold group-hover:text-orange-600 transition">Single Room</h4>
-                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Privacy</span>
-                    </div>
-                    <p class="text-4xl font-bold text-slate-900 mb-2">₹14k<span class="text-lg text-slate-400 font-normal">/mo</span></p>
-                    <p class="text-sm text-slate-500 mb-8">For those who need their own space to work and relax.</p>
-                    <button onclick="openModalWithRoom('Single Sharing')" class="w-full py-4 rounded-xl border border-slate-200 font-bold hover:bg-orange-50 hover:text-orange-700 hover:border-orange-200 transition">Check Availability</button>
-                </div>
-
-                <div class="bg-slate-900 text-white rounded-3xl p-10 shadow-2xl relative overflow-hidden transform md:scale-110 z-10">
-                    <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl">POPULAR</div>
-                    <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-bold">Double Sharing</h4>
-                    </div>
-                    <p class="text-5xl font-bold mb-2">₹8.5k<span class="text-lg text-slate-400 font-normal">/mo</span></p>
-                    <p class="text-sm text-slate-400 mb-8">The perfect balance of community and personal space.</p>
-                    <button onclick="openModalWithRoom('Double Sharing')" class="w-full py-4 rounded-xl bg-orange-600 hover:bg-orange-500 font-bold transition shadow-lg shadow-orange-900/50">Check Availability</button>
-                </div>
-
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-lg hover:shadow-xl transition duration-300 group">
-                    <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-bold group-hover:text-orange-600 transition">Triple Sharing</h4>
-                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Value</span>
-                    </div>
-                    <p class="text-4xl font-bold text-slate-900 mb-2">₹7.5k<span class="text-lg text-slate-400 font-normal">/mo</span></p>
-                    <p class="text-sm text-slate-500 mb-8">Budget-friendly option without compromising on amenities.</p>
-                    <button onclick="openModalWithRoom('Triple Sharing')" class="w-full py-4 rounded-xl border border-slate-200 font-bold hover:bg-orange-50 hover:text-orange-700 hover:border-orange-200 transition">Check Availability</button>
-                </div>
-
-            </div>
+    <div class="max-w-7xl mx-auto w-full">
+        <div class="text-center mb-16">
+            <h3 class="text-3xl font-bold text-slate-900">Simple, Transparent Pricing</h3>
+            <p class="text-slate-500 mt-3 text-lg">Daily housekeeping included (Mon-Sat). No hidden charges.</p>
         </div>
-    </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+            
+            <div class="bg-slate-900 text-white rounded-3xl p-10 shadow-xl relative overflow-hidden transition duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <h4 class="text-xl font-bold">Single Room</h4>
+                    <span class="bg-slate-800 text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase">Privacy</span>
+                </div>
+                <p class="text-4xl font-bold mb-2">₹14k<span class="text-lg text-slate-400 font-normal">/mo</span></p>
+                <p class="text-sm text-slate-400 mb-8">For those who need their own space to work and relax.</p>
+                <button onclick="openModalWithRoom('Single Sharing')" class="w-full py-4 rounded-xl bg-orange-600 hover:bg-orange-500 font-bold transition shadow-lg shadow-orange-900/50">Check Availability</button>
+            </div>
+
+            <div class="bg-slate-900 text-white rounded-3xl p-10 shadow-2xl relative overflow-hidden transform md:scale-110 z-10 border-2 border-orange-500/20">
+                <div class="flex items-center justify-between mb-4">
+                    <h4 class="text-xl font-bold">Double Sharing</h4>
+                    <span class="bg-slate-800 text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase">Popular</span>
+                </div>
+                <p class="text-5xl font-bold mb-2">₹8.5k<span class="text-lg text-slate-400 font-normal">/mo</span></p>
+                <p class="text-sm text-slate-400 mb-8">The perfect balance of community and personal space.</p>
+                <button onclick="openModalWithRoom('Double Sharing')" class="w-full py-4 rounded-xl bg-orange-600 hover:bg-orange-500 font-bold transition shadow-lg shadow-orange-900/50">Check Availability</button>
+            </div>
+
+            <div class="bg-slate-900 text-white rounded-3xl p-10 shadow-xl relative overflow-hidden transition duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <h4 class="text-xl font-bold">Triple Sharing</h4>
+                    <span class="bg-slate-800 text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase">Value</span>
+                </div>
+                <p class="text-4xl font-bold mb-2">₹6.5k<span class="text-lg text-slate-400 font-normal">/mo</span></p>
+                <p class="text-sm text-slate-400 mb-8">Budget-friendly option without compromising on amenities.</p>
+                <button onclick="openModalWithRoom('Triple Sharing')" class="w-full py-4 rounded-xl bg-orange-600 hover:bg-orange-500 font-bold transition shadow-lg shadow-orange-900/50">Check Availability</button>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <section id="gallery" class="min-h-screen flex flex-col justify-center bg-slate-50 relative snap-start">
         <div class="max-w-7xl mx-auto w-full px-4 md:px-6">
